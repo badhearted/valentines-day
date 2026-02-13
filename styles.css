@@ -27,7 +27,7 @@ body {
 .hearts-background::after {
     content: '❤️';
     position: absolute;
-    font-size: 30px;
+    font-size: 80px;
     opacity: 0.1;
     animation: float 20s infinite;
 }
@@ -414,11 +414,14 @@ body {
 
 /* ========== ФИНАЛЬНОЕ СООБЩЕНИЕ ========== */
 .road-continues.final {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.9));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
     border-radius: 30px;
     padding: 60px 40px;
     margin-top: 100px;
     box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+    position: relative;
+    z-index: 10;
+    border: 3px solid #ff69b4;
 }
 
 .final-message {
@@ -443,6 +446,38 @@ body {
     color: #ff69b4;
     font-style: italic;
     margin-top: 30px;
+}
+
+/* ========== ПРОДОЛЖЕНИЕ ПУТИ ========== */
+.road-extension {
+    position: relative;
+    padding: 80px 20px 60px;
+    text-align: center;
+}
+
+.road-extension::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 120px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #ff69b4,
+        #ff69b4 15px,
+        transparent 15px,
+        transparent 30px
+    );
+}
+
+.continuation-text {
+    font-size: 1.8em;
+    color: #ff69b4;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.2);
 }
 
 /* ========== ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ========== */

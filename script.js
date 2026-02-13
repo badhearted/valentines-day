@@ -20,7 +20,7 @@ function createFallingHearts() {
         heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
         heart.style.left = Math.random() * 100 + '%';
         heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-        heart.style.fontSize = (Math.random() * 25 + 20) + 'px';
+        heart.style.fontSize = (Math.random() * 35 + 30) + 'px';
         heart.style.opacity = Math.random() * 0.4 + 0.2;
         
         heartsBackground.appendChild(heart);
@@ -29,7 +29,7 @@ function createFallingHearts() {
         setTimeout(() => {
             heart.remove();
         }, 7000);
-    }, 400); // Уменьшили интервал с 800 до 400мс для большего количества сердечек
+    }, 250); // Уменьшили интервал с 800 до 400мс для большего количества сердечек
 }
 
 // Добавляем CSS для падающих сердечек динамически
@@ -38,7 +38,7 @@ function addFallingHeartStyles() {
     style.textContent = `
         .falling-heart {
             position: fixed;
-            top: -50px;
+            top: -100px;
             animation: fall linear;
             pointer-events: none;
             z-index: -1;
