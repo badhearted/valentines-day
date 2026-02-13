@@ -1,0 +1,377 @@
+/* ========== ОБЩИЕ СТИЛИ ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* ========== ФОН С СЕРДЕЧКАМИ ========== */
+.hearts-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 50%, #ffd4e8 100%);
+    overflow: hidden;
+}
+
+.hearts-background::before,
+.hearts-background::after {
+    content: '❤️';
+    position: absolute;
+    font-size: 30px;
+    opacity: 0.1;
+    animation: float 20s infinite;
+}
+
+.hearts-background::before {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.hearts-background::after {
+    top: 60%;
+    right: 15%;
+    animation-delay: 5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+/* ========== ПРИВЕТСТВЕННАЯ СТРАНИЦА ========== */
+.welcome-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.welcome-container {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+    max-width: 600px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.main-title {
+    font-size: 3.5em;
+    color: #ff69b4;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: #ff1493;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.heart-icon {
+    font-size: 80px;
+    animation: heartbeat 1.5s infinite;
+    margin: 30px 0;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.15);
+    }
+}
+
+.start-button {
+    font-size: 1.3em;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.6);
+}
+
+.start-button:active {
+    transform: translateY(-1px);
+}
+
+/* ========== СТРАНИЦА ИСТОРИИ ========== */
+.story-page {
+    padding: 50px 20px;
+    min-height: 100vh;
+}
+
+.story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.story-title {
+    text-align: center;
+    font-size: 3.5em;
+    color: #ff69b4;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    font-weight: bold;
+}
+
+.story-subtitle {
+    text-align: center;
+    font-size: 1.5em;
+    color: #ff1493;
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+/* ========== ИЗВИЛИСТАЯ ДОРОГА ========== */
+.timeline-road {
+    position: relative;
+    padding: 40px 0;
+}
+
+/* Центральная извилистая линия */
+.timeline-road::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #ff69b4,
+        #ff69b4 15px,
+        transparent 15px,
+        transparent 30px
+    );
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.timeline-item.left {
+    justify-content: flex-end;
+    padding-right: calc(50% + 40px);
+}
+
+.timeline-item.right {
+    justify-content: flex-start;
+    padding-left: calc(50% + 40px);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: #ff1493;
+    border: 5px solid #ffe0f0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px rgba(255, 105, 180, 0.2);
+    z-index: 2;
+}
+
+.timeline-content {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+    max-width: 500px;
+    animation: slideIn 0.6s ease-out;
+    border: 3px solid #ffe0f0;
+}
+
+.timeline-item.left .timeline-content {
+    animation-name: slideInLeft;
+}
+
+.timeline-item.right .timeline-content {
+    animation-name: slideInRight;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.image-container {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+.timeline-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+}
+
+/* ========== ПРОДОЛЖЕНИЕ ИСТОРИИ ========== */
+.road-continues {
+    text-align: center;
+    margin-top: 80px;
+    padding: 40px;
+}
+
+.road-continues p {
+    font-size: 1.8em;
+    color: #ff69b4;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.heart-pulse {
+    font-size: 60px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* ========== КНОПКА НАЗАД ========== */
+.home-button {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    padding: 12px 25px;
+    background: white;
+    color: #ff69b4;
+    border: 2px solid #ff69b4;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+}
+
+.home-button:hover {
+    background: #ff69b4;
+    color: white;
+    transform: translateX(-5px);
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5em;
+    }
+    
+    .story-title {
+        font-size: 2.5em;
+    }
+    
+    .timeline-road::before {
+        left: 30px;
+    }
+    
+    .timeline-item.left,
+    .timeline-item.right {
+        padding-left: 80px;
+        padding-right: 20px;
+        justify-content: flex-start;
+    }
+    
+    .timeline-dot {
+        left: 30px;
+    }
+    
+    .timeline-content {
+        max-width: 100%;
+    }
+}
