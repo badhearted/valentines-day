@@ -12,16 +12,16 @@ function createFallingHearts() {
     const heartsBackground = document.querySelector('.hearts-background');
     if (!heartsBackground) return;
     
-    const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝'];
+    const hearts = ['❤️', '💕', '💖', '💗', '💓', '💝', '💘', '💞'];
     
     setInterval(() => {
         const heart = document.createElement('div');
         heart.className = 'falling-heart';
         heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
         heart.style.left = Math.random() * 100 + '%';
-        heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-        heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
-        heart.style.opacity = Math.random() * 0.3 + 0.1;
+        heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        heart.style.fontSize = (Math.random() * 25 + 20) + 'px';
+        heart.style.opacity = Math.random() * 0.4 + 0.2;
         
         heartsBackground.appendChild(heart);
         
@@ -29,7 +29,7 @@ function createFallingHearts() {
         setTimeout(() => {
             heart.remove();
         }, 7000);
-    }, 800);
+    }, 400); // Уменьшили интервал с 800 до 400мс для большего количества сердечек
 }
 
 // Добавляем CSS для падающих сердечек динамически

@@ -309,6 +309,15 @@ body {
 .heart-pulse {
     font-size: 60px;
     animation: pulse 1.5s infinite;
+    display: inline-block;
+}
+
+.heart-pulse.delay-1 {
+    animation-delay: 0.3s;
+}
+
+.heart-pulse.delay-2 {
+    animation-delay: 0.6s;
 }
 
 @keyframes pulse {
@@ -320,6 +329,142 @@ body {
         transform: scale(1.2);
         opacity: 0.8;
     }
+}
+
+/* ========== ЦЕНТРАЛЬНАЯ ВАЛЕНТИНКА ========== */
+.timeline-item.center-valentine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    margin: 80px 0;
+}
+
+.timeline-item.center-valentine .timeline-content {
+    max-width: 650px;
+    background: linear-gradient(135deg, #fff5f8, #ffffff);
+    border: 5px solid #ff69b4;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+    animation: scaleIn 1s ease-out;
+    position: relative;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.valentine-card {
+    padding: 40px !important;
+}
+
+.valentine-card::before,
+.valentine-card::after {
+    content: '💖';
+    position: absolute;
+    font-size: 40px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.valentine-card::before {
+    top: -20px;
+    left: -20px;
+}
+
+.valentine-card::after {
+    bottom: -20px;
+    right: -20px;
+    animation-delay: 1.5s;
+}
+
+.valentine-text {
+    font-size: 1.3em !important;
+    text-align: center !important;
+    color: #ff1493;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.timeline-item.center-valentine .timeline-dot {
+    position: relative;
+    left: 0;
+    top: auto;
+    transform: none;
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    box-shadow: 0 0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+.heart-dot::before {
+    content: '❤️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+}
+
+/* ========== ФИНАЛЬНОЕ СООБЩЕНИЕ ========== */
+.road-continues.final {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 240, 245, 0.9));
+    border-radius: 30px;
+    padding: 60px 40px;
+    margin-top: 100px;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+}
+
+.final-message {
+    font-size: 2.5em !important;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 30px;
+}
+
+.hearts-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.signature {
+    font-size: 1.8em;
+    color: #ff69b4;
+    font-style: italic;
+    margin-top: 30px;
+}
+
+/* ========== ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ========== */
+.timeline-content::before {
+    content: '✨';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+.timeline-item:nth-child(3n) .timeline-content::before {
+    content: '💕';
+}
+
+.timeline-item:nth-child(4n) .timeline-content::before {
+    content: '💖';
+}
+
+.timeline-item:nth-child(5n) .timeline-content::before {
+    content: '🌸';
 }
 
 /* ========== КНОПКА НАЗАД ========== */
@@ -367,11 +512,28 @@ body {
         justify-content: flex-start;
     }
     
+    .timeline-item.center-valentine {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
     .timeline-dot {
         left: 30px;
     }
     
+    .timeline-item.center-valentine .timeline-dot {
+        left: 0;
+    }
+    
     .timeline-content {
         max-width: 100%;
+    }
+    
+    .final-message {
+        font-size: 1.8em !important;
+    }
+    
+    .hearts-row {
+        gap: 15px;
     }
 }
